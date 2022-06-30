@@ -20,3 +20,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: SnykSecurityScan@1
+  inputs:
+    serviceConnectionEndpoint: 'maven'
+    testType: 'app'
+    monitorWhen: 'always'
+    failOnIssues: true
+    organization: 'ffb6138d-a9e2-4645-bc8d-5e34a1558831'
